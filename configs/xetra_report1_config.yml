@@ -1,0 +1,19 @@
+
+# Logging configuration
+logging:
+  version: 1
+  formatters:  # un formatter définit la structure et le style des messages de logs qui seront générés lors de l'exécution d'une application.
+    xetra:  #nom du formatter 
+      format: "Xetra Transformer - %(asctime)s - %(levelname)s - %(message)s" # format du formatter : temps + niveau du logging + message lui mm
+    
+  handlers:  #un handler gère la sortie des messages de logs, en spécifiant où ils doivent être envoyés (par exemple, la console, un fichier, une base de données, etc.) et à quel niveau de gravité ils doivent être traités.
+    console:
+      class: logging.StreamHandler # indique que le type de handler à utiliser est StreamHandler du module de logging standard de Python (logging)
+      #il est utilisé pour envoyer les messages de logs vers un flux de sortie, tel que la console 
+      formatter: xetra #le formatter utilisé pour formatter les messages 
+      level: DEBUG
+    
+  root:
+    level : DEBUG
+    handlers : [console]
+
